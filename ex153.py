@@ -1,7 +1,6 @@
 try:
-    long_word = 0
+    longest_word = []
     max_len = 0
-
     with open('ex150.txt', 'r') as file:
         for line in file:
             words = line.split()
@@ -9,10 +8,10 @@ try:
                 word_len = len(word)
                 if word_len > max_len:
                     max_len = word_len
-                    long_word = word
+                    longest_word = [word]
                 elif word_len == max_len:
-                    long_word.append(word)
-    print(f'Length: {max_len}, Word: {long_word}')
+                    longest_word.append(word)
+    print(f'Length: {max_len}, Word: {longest_word}')
 
-except:
+except FileNotFoundError:
     print('sorry there was an error with your file')
